@@ -21,8 +21,6 @@ Das Backend wird mit dem Befehl
     nodemon index 
 
 gestartet.
-
-=======
 Es läuft im *localhost* auf dem Port 5000.
 
 #### Login daten
