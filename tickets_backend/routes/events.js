@@ -1,6 +1,8 @@
 import express from "express";
 import authentification from "../Middleware/authentification.js";
 
+
+//ersatz für DB
 let events = [
   {
     _id: "YtDjXlb2V9",
@@ -136,8 +138,8 @@ eventRoutes.get("/events/", async (req, res) => {
 
 eventRoutes.get("/events/:id", async (req, res) => {
   const id = req.params["id"];
-  let temp = removeTickets(events, null)
-  let event = temp.find((e) => e["_id"] === id);
+  let temp = removeTickets(events, null);   //nur Tickets deren holder == null mitsenden
+  let event = temp.find((e) => e["_id"] === id);  
   res.json(event);
 });
 
@@ -162,12 +164,14 @@ eventRoutes.post("/booking",authentification,async (req, res) => {
   }
 });
 
+
 const getEventsByHolder = (events, holder) => {
   return events.filter((event) => {
     return event.tickets.some((ticket) => ticket.holder === holder);
   });
 };
 
+//nur tickets mit dem holder == username bleiben
 let removeTickets = (events, username) => {
    let newEvents = events.map(event => {
        let newTickets = event.tickets.filter(ticket => ticket.holder === username)
@@ -181,7 +185,6 @@ eventRoutes.post("/myTickets", authentification, async (req, res) => {
   let result = getEventsByHolder(events, "leon");
   result = removeTickets(result, username)
   res.json(result)
-  //console.log(JSON.stringify(result))
 })
 
 export default eventRoutes;
