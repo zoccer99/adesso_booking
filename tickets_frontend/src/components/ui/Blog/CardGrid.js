@@ -10,10 +10,10 @@ export const CardGrid = () => {
       <div className="row justify-content-between">
         {loading && <div>loading</div>}
         {data &&
-          data.slice(0, 4).map(
+          data.slice(0, 4).map(   //alle 3 Cards -> neue Row
             (
               e,
-              i //erste 3
+              i 
             ) => (
               <div
                 className="col col-md-4 d-flex justify-content-center my-2"

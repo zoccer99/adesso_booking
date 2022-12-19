@@ -21,6 +21,7 @@ Das Backend wird mit dem Befehl
     nodemon index 
 
 gestartet.
-Es läuft im *localhost* auf dem Port 5000.# adesso_booking
-# adesso_booking
-# adesso_booking
+Es läuft im *localhost* auf dem Port 5000.
+
+#### Login Daten
+username -> "leon", password -> "12345"

@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 const authentification = (req, res, next) => {
-  const authHeader = req.headers["authorization"];
+  const authHeader = req.headers["authorization"];//struktur: {header: {"authorization": "Bearer TOKEN"}}
   const token = authHeader && (authHeader).split(" ")[1];
   if (token == null) return res.sendStatus(401);
   jwt.verify(token, process.env.TOKEN_SECRET, (err, decoded) => {
